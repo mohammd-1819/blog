@@ -1,0 +1,87 @@
+{% load static %}
+
+<!-- ***** Preloader Start ***** -->
+<div id="preloader">
+    <div class="jumper">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+</div>
+<!-- ***** Preloader End ***** -->
+
+<!-- Header -->
+<header class="">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'home:home' %}"><h2>Stand Blog<em>.</em></h2></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                    aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+
+                    <li class="nav-item {% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+                        <a class="nav-link" href="{% url 'home:home' %}">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+
+                    <li class="nav-item {% if request.resolver_match.url_name == 'about' %}active{% endif %}">
+                        <a class="nav-link" href="{% url 'home:about' %}">About Us</a>
+                    </li>
+
+                    <li class="nav-item {% if request.resolver_match.url_name == 'post-list' %}active{% endif %}">
+                        <a class="nav-link" href="{% url 'blog:post-list'%}">All Posts</a>
+                    </li>
+
+
+                    <li class="nav-item {% if request.resolver_match.url_name == 'contact' %}active{% endif %}">
+                        <a class="nav-link" href="{% url 'home:contact' %}">Contact Us</a>
+                    </li>
+
+                    {% if request.user.is_authenticated %}
+
+                        <div class="d-flex">
+
+                            <div class="dropdown show">
+                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
+                                   id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                   aria-expanded="false">
+                                    {{ request.user.username }}
+                                </a>
+
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="{% url 'account:logout' %}">Logout</a>
+                                </div>
+                            </div>
+
+
+                            {#                            <div>#}
+                            {#                                <span><a href="{% url 'account:edit-profile' %}"><span class="badge badge-primary mt-2">Edit Profile</span></a></span>#}
+                            {#                            </div>#}
+
+                        </div>
+                    {% else %}
+
+                            <div class="dropdown show">
+                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button"
+                                   id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                                   aria-expanded="false">
+                                    user
+                                </a>
+
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="{% url 'account:login' %}">Login</a>
+                                    <a class="dropdown-item" href="{% url 'account:register' %}">Sign Up</a>
+                                </div>
+                            </div>
+
+                    {% endif %}
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
