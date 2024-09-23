@@ -25,29 +25,29 @@ To set up the project on your local machine, follow these steps:
     source venv/bin/activate  # On Windows: venv\Scripts\activate
 
 
-4. **Install the required dependencies:**
+3. **Install the required dependencies:**
    ```bash
     pip install -r requirements.txt
 
 
-6. **Apply the migrations:**
+4. **Apply the migrations:**
    ```bash
     python manage.py migrate
 
 
-8. **Create a superuser for the admin panel (optional but recommended):**
+5. **Create a superuser for the admin panel (optional but recommended):**
    ```bash
     python manage.py createsuperuser
     default is: admin@gmail.com
     password : admin
 
 
-10. **Run the development server:**
+6. **Run the development server:**
     ```bash
     python manage.py runserver
 
 
-12. **Access the application:**
+7. **Access the application:**
     Open your browser and go to http://127.0.0.1:8000/ for the main page
 
 
